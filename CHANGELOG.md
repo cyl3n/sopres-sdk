@@ -7,17 +7,26 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ---
 
-## [Unreleased]
+## [1.0.1] - 2026-01-07
 
-### Geplant für v0.1.0
+### Geändert
 
-- Fix für E2E Test Rate Limiting
-- Vollständige API Endpoint Dokumentation
-- Code of Conduct Dokument
-- Security Policy (SECURITY.md)
-- GitHub Issue & PR Templates
+- **Branding**: Alle verbleibenden Referenzen auf "vitecms" und "sopres-cms" wurden durch "soPres" ersetzt.
+- **Typisierung**: Explizite `any`-Typen in `@sopres/core` wurden durch `unknown` ersetzt, um die Typsicherheit zu erhöhen und Lint-Warnungen zu beseitigen.
+- **CI/CD**: `package-lock.json` hinzugefügt, um stabile Builds in der CI sicherzustellen.
 
----
+### Hinzugefügt
+
+- GitHub Issue Templates für Bug-Reports und Feature-Requests.
+
+## [1.0.0] - 2026-01-07
+
+### Hinzugefügt
+
+- Initialer Release der soPres SDK Pakete (`@sopres/sdk`, `@sopres/core`, `@sopres/utils`).
+- Neues, SDK-zentriertes Repository-Layout.
+- GitHub Actions Workflows für automatisiertes Publizieren auf NPM.
+- Umfassende Dokumentations-Bereinigung und professioneller "Polish".
 
 ## [0.0.16] - 2025-11-26
 
@@ -428,6 +437,6 @@ soPres ist unter der [MIT License](LICENSE) lizenziert.
 
 ---
 
-**Projekt Status:** In Entwicklung (Phase 8)
-**Nächste Version:** v0.1.0 (Alpha Release)
+**Projekt Status:** Stabil (Release 1.0.1)
+**Nächste Version:** v1.1.0
 **Maintainer:** Steffen Oepke (@cyl3n)
