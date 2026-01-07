@@ -1,0 +1,57 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package to publish (sdk, core, utils, or all)'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - sdk
+          - core
+          - utils
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Packages
+        run: npm run build:packages
+
+      - name: Publish @sopres/core
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'core' || github.event_name == 'release' }}
+        run: npm publish --access public
+        working-directory: packages/@sopres/core
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @sopres/utils
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'utils' || github.event_name == 'release' }}
+        run: npm publish --access public
+        working-directory: packages/@sopres/utils
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @sopres/sdk
+        if: ${{ github.event.inputs.package == 'all' || github.event.inputs.package == 'sdk' || github.event_name == 'release' }}
+        run: npm publish --access public
+        working-directory: packages/@sopres/sdk
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
