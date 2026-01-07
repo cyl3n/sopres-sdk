@@ -24,7 +24,7 @@ npm install @sopres/sdk
 import { SopresClient } from "@sopres/sdk";
 
 const client = new SopresClient({
-  baseUrl: "https://your-sopres-instance.com/api",
+  apiUrl: "https://your-sopres-instance.com/api",
   apiKey: "your-api-key",
 });
 
