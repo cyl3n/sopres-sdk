@@ -2,7 +2,7 @@
  * soPres SDK Client Configuration
  */
 
-import { createsoPres } from "@sopres/sdk";
+import { SopresClient } from "@sopres/sdk";
 
 if (!process.env.NEXT_PUBLIC_SOPRES_API_URL) {
   throw new Error(
@@ -10,7 +10,7 @@ if (!process.env.NEXT_PUBLIC_SOPRES_API_URL) {
   );
 }
 
-export const cms = createsoPres({
+export const cms = new SopresClient({
   apiUrl: process.env.NEXT_PUBLIC_SOPRES_API_URL,
   accessToken: process.env.SOPRES_ACCESS_TOKEN,
   refreshToken: process.env.SOPRES_REFRESH_TOKEN,

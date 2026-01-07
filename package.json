@@ -19,6 +19,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf node_modules dist .turbo && npm run clean --workspaces --if-present",
+    "sync": "./scripts/sync-repos.sh",
     "prepare": "husky"
   },
   "devDependencies": {
