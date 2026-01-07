@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@sopres/core": ["./packages/@sopres/core/src"],
+      "@sopres/patterns": ["./packages/@sopres/patterns/src"],
+      "@sopres/validators": ["./packages/@sopres/validators/src"],
+      "@sopres/ui": ["./packages/@sopres/ui/src"],
+      "@sopres/utils": ["./packages/@sopres/utils/src"],
+      "@sopres/sdk": ["./packages/@sopres/sdk/src"]
+    }
+  },
+  "include": ["api/src", "cli/src", "engine", "packages", "scripts"],
+  "exclude": ["node_modules", "dist", "**/node_modules", "**/dist", "admin"]
+}

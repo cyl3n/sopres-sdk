@@ -1,0 +1,66 @@
+{
+  "name": "sopres-sdk",
+  "version": "0.1.0",
+  "description": "soPres SDK - TypeScript SDK for building with soPres CMS",
+  "private": true,
+  "workspaces": [
+    "packages/@sopres/*",
+    "boilerplates"
+  ],
+  "scripts": {
+    "build": "npm run build:packages",
+    "build:packages": "npm run build --workspaces --if-present -w packages/@sopres/core -w packages/@sopres/utils -w packages/@sopres/sdk",
+    "test": "jest --runInBand",
+    "test:unit": "jest --testPathPatterns=unit --runInBand",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf node_modules dist .turbo && npm run clean --workspaces --if-present",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.3",
+    "ts-jest": "^29.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyl3n/sopres-sdk.git"
+  },
+  "keywords": [
+    "sopres",
+    "sdk",
+    "cms",
+    "typescript",
+    "headless-cms"
+  ],
+  "author": "Steffen Oepke",
+  "license": "MIT",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings 1500",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}

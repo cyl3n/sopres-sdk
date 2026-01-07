@@ -1,0 +1,50 @@
+{
+  "name": "@sopres/sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript/TypeScript SDK for soPres - Headless CMS Client",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm && tsc --emitDeclarationOnly --declaration",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "sopres",
+    "sdk",
+    "headless-cms",
+    "cms",
+    "api-client",
+    "typescript"
+  ],
+  "author": "Steffen Oepke",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "@sopres/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyl3n/sopres-sdk.git",
+    "directory": "packages/@sopres/sdk"
+  },
+  "homepage": "https://github.com/cyl3n/sopres-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/cyl3n/sopres-sdk/issues"
+  },
+  "peerDependencies": {
+    "@sopres/core": "^1.0.0"
+  }
+}

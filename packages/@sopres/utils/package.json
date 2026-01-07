@@ -1,0 +1,33 @@
+{
+  "name": "@sopres/utils",
+  "version": "1.0.0",
+  "description": "Utility functions and helpers for soPres",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "sopres",
+    "utils",
+    "helpers"
+  ],
+  "author": "Steffen Oepke",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyl3n/sopres-sdk.git",
+    "directory": "packages/@sopres/utils"
+  },
+  "homepage": "https://github.com/cyl3n/sopres-sdk#readme",
+  "dependencies": {
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@sopres/core",
+  "version": "1.0.0",
+  "description": "Core types and utilities for soPres",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "sopres",
+    "core",
+    "types"
+  ],
+  "author": "Steffen Oepke",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.25.76"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyl3n/sopres-sdk.git",
+    "directory": "packages/@sopres/core"
+  },
+  "homepage": "https://github.com/cyl3n/sopres-sdk#readme",
+  "peerDependencies": {
+    "@prisma/client": "^5.7.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@prisma/client": "^5.7.1"
+  }
+}
