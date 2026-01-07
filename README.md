@@ -66,8 +66,10 @@ npm run lint
 
 ## 📚 Documentation
 
-- [Getting Started](docs/01-getting-started/)
-- [SDK Handbook](docs/handbook/)
+- [Quick Start](docs/getting-started.md)
+- [API Index](docs/index.md)
+- [Content API Guide](docs/api/content.md)
+- [Auth Guide](docs/guides/authentication.md)
 
 ## 🤝 Contributing
 
