@@ -7,6 +7,13 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ---
 
+## [1.0.2] - 2026-01-07
+
+### Geändert
+
+- **Naming**: Hauptklasse von `soPres` in `SopresClient` umbenannt, um dem PascalCase-Standard und der Dokumentation zu entsprechen. `soPres` bleibt als Alias (deprecated) erhalten.
+- **Typen**: Alle SDK-Typen auf PascalCase umgestellt (`SopresConfig`, `SopresClient`).
+
 ## [1.0.1] - 2026-01-07
 
 ### Geändert
@@ -437,6 +444,6 @@ soPres ist unter der [MIT License](LICENSE) lizenziert.
 
 ---
 
-**Projekt Status:** Stabil (Release 1.0.1)
+**Projekt Status:** Stabil (Release 1.0.2)
 **Nächste Version:** v1.1.0
 **Maintainer:** Steffen Oepke (@cyl3n)

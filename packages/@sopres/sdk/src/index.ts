@@ -10,8 +10,8 @@ import { MediaAPIImpl } from "./api/media";
 import { ProjectAPIImpl } from "./api/project";
 
 import type {
-  soPresConfig,
-  soPresClient,
+  SopresConfig,
+  ISopresClient,
   ContentAPI,
   AuthAPI,
   MediaAPI,
@@ -42,7 +42,7 @@ export * from "./types";
  * const pages = await cms.content.list({ status: 'PUBLISHED' });
  * ```
  */
-export class soPres implements soPresClient {
+export class SopresClient implements ISopresClient {
   private httpClient: HTTPClient;
 
   public readonly content: ContentAPI;
@@ -50,7 +50,7 @@ export class soPres implements soPresClient {
   public readonly media: MediaAPI;
   public readonly projects: ProjectAPI;
 
-  constructor(config: soPresConfig) {
+  constructor(config: SopresConfig) {
     this.httpClient = new HTTPClient(config);
 
     // Initialize API modules
@@ -83,6 +83,13 @@ export class soPres implements soPresClient {
 }
 
 /**
+ * Alias for SopresClient for backward compatibility
+ * @deprecated Use SopresClient instead
+ */
+export const soPres = SopresClient;
+export type soPres = SopresClient;
+
+/**
  * Create a new soPres SDK instance
  *
  * @param config - SDK configuration
@@ -96,8 +103,8 @@ export class soPres implements soPresClient {
  * });
  * ```
  */
-export function createsoPres(config: soPresConfig): soPres {
-  return new soPres(config);
+export function createsoPres(config: SopresConfig): SopresClient {
+  return new SopresClient(config);
 }
 
 // Default export

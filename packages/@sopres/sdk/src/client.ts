@@ -3,13 +3,13 @@
  */
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from "axios";
-import type { soPresConfig, ApiResponse, ApiError } from "./types";
+import type { SopresConfig, ApiResponse, ApiError } from "./types";
 
 export class HTTPClient {
   private axiosInstance: AxiosInstance;
-  private config: soPresConfig;
+  private config: SopresConfig;
 
-  constructor(config: soPresConfig) {
+  constructor(config: SopresConfig) {
     this.config = {
       timeout: 30000,
       autoRefreshToken: true,

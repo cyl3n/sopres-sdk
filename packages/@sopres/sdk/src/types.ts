@@ -15,7 +15,7 @@ export type { Page, Media, User, UserRole, ProjectWalkthrough };
 /**
  * SDK Configuration
  */
-export interface soPresConfig {
+export interface SopresConfig {
   /** Base URL of your soPres API (e.g., 'https://api.example.com') */
   apiUrl: string;
 
@@ -115,7 +115,7 @@ export interface RegisterData {
 /**
  * SDK Client interface
  */
-export interface soPresClient {
+export interface ISopresClient {
   content: ContentAPI;
   auth: AuthAPI;
   media: MediaAPI;

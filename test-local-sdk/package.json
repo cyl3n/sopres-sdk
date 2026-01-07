@@ -1,0 +1,18 @@
+{
+  "name": "test-local-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@sopres/core": "file:../packages/@sopres/core",
+    "@sopres/sdk": "file:../packages/@sopres/sdk",
+    "@sopres/utils": "file:../packages/@sopres/utils"
+  }
+}
