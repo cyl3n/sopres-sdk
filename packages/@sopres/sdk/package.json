@@ -1,6 +1,6 @@
 {
   "name": "@sopres/sdk",
-  "version": "1.0.2",
+  "version": "1.0.21",
   "description": "Official JavaScript/TypeScript SDK for soPres - Headless CMS Client",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",
-    "@sopres/core": "^1.0.2"
+    "@sopres/core": "^1.0.21"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
@@ -45,6 +45,6 @@
     "url": "https://github.com/cyl3n/sopres-sdk/issues"
   },
   "peerDependencies": {
-    "@sopres/core": "^1.0.2"
+    "@sopres/core": "^1.0.21"
   }
 }
