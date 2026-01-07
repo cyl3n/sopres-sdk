@@ -186,10 +186,10 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 #### Hinzugefügt
 
-- `vitecms deploy` - Production Deployment Command
-- `vitecms backup` - Database Backup Command
-- `vitecms restore` - Database Restore Command
-- `vitecms health` - Health Check Command
+- `sopres deploy` - Production Deployment Command
+- `sopres backup` - Database Backup Command
+- `sopres restore` - Database Restore Command
+- `sopres health` - Health Check Command
 
 #### Funktionen
 
@@ -206,10 +206,10 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 #### Hinzugefügt
 
-- `vitecms user:create` - User erstellen
-- `vitecms user:list` - User auflisten
-- `vitecms user:delete` - User löschen
-- `vitecms user:role` - User Rolle ändern
+- `sopres user:create` - User erstellen
+- `sopres user:list` - User auflisten
+- `sopres user:delete` - User löschen
+- `sopres user:role` - User Rolle ändern
 
 #### Funktionen
 
@@ -226,12 +226,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 #### Hinzugefügt
 
-- `vitecms init` - Projekt Initialisierung
-- `vitecms generate` - Code Generation
+- `sopres init` - Projekt Initialisierung
+- `sopres generate` - Code Generation
   - Pages
   - Components
   - Patterns
-- `vitecms config` - Konfiguration Management
+- `sopres config` - Konfiguration Management
 
 #### Funktionen
 

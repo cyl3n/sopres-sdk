@@ -96,7 +96,7 @@ FROM nginx:alpine AS admin
 
 ```env
 NODE_ENV=development
-DATABASE_URL="postgresql://vitecms:vitecms@localhost:5432/vitecms"
+DATABASE_URL="postgresql://sopres:sopres@localhost:5432/sopres"
 REDIS_URL="redis://localhost:6379"
 JWT_SECRET="dev-secret-change-in-production"
 JWT_REFRESH_SECRET="dev-refresh-secret-change-in-production"
@@ -109,7 +109,7 @@ Create `.env.production`:
 ```env
 NODE_ENV=production
 # Update this to point to the postgres service in docker-compose.prod.yml
-DATABASE_URL="postgresql://vitecms:vitecms@postgres:5432/vitecms"
+DATABASE_URL="postgresql://sopres:sopres@postgres:5432/sopres"
 JWT_SECRET="<generated-secret-64-chars>"
 JWT_REFRESH_SECRET="<generated-secret-64-chars>"
 CORS_ORIGIN="https://your-domain.com"
@@ -304,7 +304,7 @@ docker-compose -f docker-compose.prod.yml build --no-cache
 docker-compose -f docker-compose.prod.yml pull
 
 # List images
-docker images | grep vitecms
+docker images | grep sopres
 
 # Remove unused images
 docker image prune -a
@@ -317,23 +317,23 @@ docker image prune -a
 docker volume ls
 
 # Inspect volume
-docker volume inspect vitecms_postgres_data
+docker volume inspect sopres_postgres_data
 
 # Remove all volumes (WARNING: deletes data)
 docker-compose -f docker-compose.prod.yml down -v
 
 # Backup volume
-docker run --rm -v vitecms_postgres_data:/data -v $(pwd):/backup alpine tar czf /backup/postgres-backup.tar.gz /data
+docker run --rm -v sopres_postgres_data:/data -v $(pwd):/backup alpine tar czf /backup/postgres-backup.tar.gz /data
 ```
 
 ### Health Checks
 
 ```bash
 # Check container health
-docker inspect --format='{{.State.Health.Status}}' vitecms-api
+docker inspect --format='{{.State.Health.Status}}' sopres-api
 
 # View health check logs
-docker inspect --format='{{json .State.Health}}' vitecms-api | jq
+docker inspect --format='{{json .State.Health}}' sopres-api | jq
 ```
 
 ---
@@ -346,13 +346,13 @@ Build with specific target:
 
 ```bash
 # Build only API
-docker build --target api -t vitecms-api:latest .
+docker build --target api -t sopres-api:latest .
 
 # Build only Admin
-docker build --target admin -t vitecms-admin:latest .
+docker build --target admin -t sopres-admin:latest .
 
 # Build with build args
-docker build --build-arg NODE_VERSION=20 -t vitecms-api:latest .
+docker build --build-arg NODE_VERSION=20 -t sopres-api:latest .
 ```
 
 ### Docker Compose Override
@@ -402,7 +402,7 @@ lsof -i :3000
 docker-compose ps
 
 # Inspect container
-docker inspect vitecms-api
+docker inspect sopres-api
 ```
 
 ### Database Connection Issues
@@ -412,7 +412,7 @@ docker inspect vitecms-api
 docker-compose ps postgres
 
 # Test connection
-docker-compose exec postgres psql -U vitecms -d vitecms -c "SELECT 1"
+docker-compose exec postgres psql -U sopres -d sopres -c "SELECT 1"
 
 # Check environment variables
 docker-compose exec api printenv | grep DATABASE_URL
@@ -477,10 +477,10 @@ docker info | grep -i memory
 
 ```bash
 # Scan image for vulnerabilities
-docker scout cves vitecms-api:latest
+docker scout cves sopres-api:latest
 
 # Or use trivy
-trivy image vitecms-api:latest
+trivy image sopres-api:latest
 ```
 
 ### Container Security
@@ -543,12 +543,12 @@ services:
 ```bash
 # Backup database volume
 docker run --rm \
-  -v vitecms_postgres_data:/data \
+  -v sopres_postgres_data:/data \
   -v $(pwd):/backup \
   alpine tar czf /backup/db-backup-$(date +%Y%m%d).tar.gz /data
 
 # Backup uploaded files
-docker cp vitecms-api:/app/uploads ./uploads-backup-$(date +%Y%m%d)
+docker cp sopres-api:/app/uploads ./uploads-backup-$(date +%Y%m%d)
 ```
 
 ### Restore
@@ -556,12 +556,12 @@ docker cp vitecms-api:/app/uploads ./uploads-backup-$(date +%Y%m%d)
 ```bash
 # Restore database volume
 docker run --rm \
-  -v vitecms_postgres_data:/data \
+  -v sopres_postgres_data:/data \
   -v $(pwd):/backup \
   alpine tar xzf /backup/db-backup-20251126.tar.gz -C /
 
 # Restore uploaded files
-docker cp ./uploads-backup-20251126 vitecms-api:/app/uploads
+docker cp ./uploads-backup-20251126 sopres-api:/app/uploads
 ```
 
 ---
@@ -599,10 +599,10 @@ docker stats
 
 ```bash
 # Backup database
-docker-compose exec postgres pg_dump -U vitecms vitecms > backup.sql
+docker-compose exec postgres pg_dump -U sopres sopres > backup.sql
 
 # Restore database
-docker-compose exec -T postgres psql -U vitecms vitecms < backup.sql
+docker-compose exec -T postgres psql -U sopres sopres < backup.sql
 
 # Reset database (development only!)
 docker-compose -f docker-compose.dev.yml down -v

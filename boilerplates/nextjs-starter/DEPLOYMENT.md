@@ -34,7 +34,7 @@ Vercel is the recommended platform for Next.js applications.
    Add these in Vercel project settings:
 
    ```
-   NEXT_PUBLIC_VITECMS_API_URL=https://your-api.example.com
+   NEXT_PUBLIC_SOPRES_API_URL=https://your-api.example.com
    NEXT_PUBLIC_SITE_URL=https://your-site.vercel.app
    ```
 
@@ -78,7 +78,7 @@ vercel --prod
    Add in Netlify site settings:
 
    ```
-   NEXT_PUBLIC_VITECMS_API_URL=https://your-api.example.com
+   NEXT_PUBLIC_SOPRES_API_URL=https://your-api.example.com
    NEXT_PUBLIC_SITE_URL=https://your-site.netlify.app
    ```
 
@@ -150,13 +150,13 @@ const nextConfig = {
 
 ```bash
 # Build image
-docker build -t vitecms-nextjs .
+docker build -t sopres-nextjs .
 
 # Run container
 docker run -p 3000:3000 \
-  -e NEXT_PUBLIC_VITECMS_API_URL=https://your-api.example.com \
+  -e NEXT_PUBLIC_SOPRES_API_URL=https://your-api.example.com \
   -e NEXT_PUBLIC_SITE_URL=https://your-domain.com \
-  vitecms-nextjs
+  sopres-nextjs
 ```
 
 ### 4. Docker Compose
@@ -171,7 +171,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_VITECMS_API_URL=https://your-api.example.com
+      - NEXT_PUBLIC_SOPRES_API_URL=https://your-api.example.com
       - NEXT_PUBLIC_SITE_URL=https://your-domain.com
     restart: unless-stopped
 ```
@@ -213,7 +213,7 @@ npm ci
 
 # Create .env.local
 cat > .env.local << EOF
-NEXT_PUBLIC_VITECMS_API_URL=https://your-api.example.com
+NEXT_PUBLIC_SOPRES_API_URL=https://your-api.example.com
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 EOF
 
@@ -221,7 +221,7 @@ EOF
 npm run build
 
 # Start with PM2
-pm2 start npm --name "vitecms-nextjs" -- start
+pm2 start npm --name "sopres-nextjs" -- start
 
 # Save PM2 config
 pm2 save
@@ -231,7 +231,7 @@ pm2 startup
 ### 4. Setup Nginx Reverse Proxy
 
 ```nginx
-# /etc/nginx/sites-available/vitecms
+# /etc/nginx/sites-available/sopres
 server {
     listen 80;
     server_name your-domain.com;
@@ -250,7 +250,7 @@ server {
 Enable and restart:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/vitecms /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/sopres /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -266,10 +266,10 @@ sudo certbot --nginx -d your-domain.com
 
 Before deploying, ensure these variables are set:
 
-- ✅ `NEXT_PUBLIC_VITECMS_API_URL` (required)
+- ✅ `NEXT_PUBLIC_SOPRES_API_URL` (required)
 - ✅ `NEXT_PUBLIC_SITE_URL` (recommended for SEO)
-- ⚪ `VITECMS_ACCESS_TOKEN` (optional, for authenticated requests)
-- ⚪ `VITECMS_REFRESH_TOKEN` (optional)
+- ⚪ `SOPRES_ACCESS_TOKEN` (optional, for authenticated requests)
+- ⚪ `SOPRES_REFRESH_TOKEN` (optional)
 - ⚪ `REVALIDATE_*` (optional, custom revalidation times)
 
 ## Post-Deployment Checklist
@@ -311,7 +311,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_VITECMS_API_URL: ${{ secrets.VITECMS_API_URL }}
+          NEXT_PUBLIC_SOPRES_API_URL: ${{ secrets.SOPRES_API_URL }}
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
@@ -368,4 +368,4 @@ npx @sentry/wizard@latest -i nextjs
 Need help with deployment? Contact us:
 
 - 📧 Email: support@sopres.dev
-- 💬 Discord: [Join our community](https://discord.gg/vitecms)
+- 💬 Discord: [Join our community](https://discord.gg/sopres)

@@ -37,9 +37,9 @@ sudo systemctl enable postgresql
 
 # Create database and user
 sudo -u postgres psql << EOF
-CREATE USER vitecms WITH PASSWORD 'vitecms';
-CREATE DATABASE vitecms OWNER vitecms;
-GRANT ALL PRIVILEGES ON DATABASE vitecms TO vitecms;
+CREATE USER sopres WITH PASSWORD 'sopres';
+CREATE DATABASE sopres OWNER sopres;
+GRANT ALL PRIVILEGES ON DATABASE sopres TO sopres;
 EOF
 
 # Run migrations

@@ -46,10 +46,10 @@ npm --version   # Should be 9.x.x or higher
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vitecms.git
+git clone https://github.com/yourusername/sopres.git
 
 # Navigate into the directory
-cd vitecms
+cd sopres
 ```
 
 ### Step 2: Install Dependencies
@@ -184,7 +184,7 @@ This is my first page created with soPres!
 
 ## Getting Started
 
-Check out the [documentation](https://vitecms.com/docs) to learn more!
+Check out the [documentation](https://sopres.de/docs) to learn more!
 ```
 
 **Optional fields:**
@@ -210,7 +210,7 @@ Discover my new website powered by soPres - fast, modern, and easy to use.
 **SEO Keywords:**
 
 ```
-welcome, vitecms, cms, website
+welcome, sopres, cms, website
 ```
 
 ### Step 3: Save as Draft
@@ -729,7 +729,7 @@ You've completed the Getting Started guide! You now know how to:
 
 **Happy Building!** 🎨✨
 
-**Questions?** Check the [Handbook](../HANDBOOK.md) or [open an issue](https://github.com/yourusername/vitecms/issues)!
+**Questions?** Check the [Handbook](../HANDBOOK.md) or [open an issue](https://github.com/yourusername/sopres/issues)!
 
 ---
 

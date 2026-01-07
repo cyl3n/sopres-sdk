@@ -37,7 +37,7 @@ export default function RootLayout({
             <div className="container mx-auto px-4 py-6 text-center text-sm text-gray-600">
               Powered by{" "}
               <a
-                href="https://github.com/vitecms"
+                href="https://github.com/sopres"
                 className="font-medium hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"

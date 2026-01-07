@@ -16,7 +16,7 @@ SSO is configured via environment variables or the `config/custom-environment-va
 
 ```env
 OIDC_ISSUER="https://your-idp.com/auth/realms/enterprise"
-OIDC_CLIENT_ID="vitecms-enterprise"
+OIDC_CLIENT_ID="sopres-enterprise"
 OIDC_CLIENT_SECRET="your-secret-key"
 OIDC_CALLBACK_URL="https://cms.your-company.com/api/auth/callback/oidc"
 ```
@@ -26,7 +26,7 @@ OIDC_CALLBACK_URL="https://cms.your-company.com/api/auth/callback/oidc"
 ```env
 SAML_ENTRY_POINT="https://your-idp.com/auth/realms/enterprise/protocol/saml"
 SAML_CERT="<your-idp-public-cert>"
-SAML_ISSUER="vitecms-enterprise"
+SAML_ISSUER="sopres-enterprise"
 SAML_CALLBACK_URL="https://cms.your-company.com/api/auth/callback/saml"
 ```
 

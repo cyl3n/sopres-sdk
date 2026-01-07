@@ -45,14 +45,16 @@ export class NotFoundError extends BaseError {
  * 400 Validation Error
  */
 export class ValidationError extends BaseError {
-  public readonly errors?: any;
+  public readonly errors?: unknown;
 
   constructor(
     message: string = "Validation failed",
-    errors?: any,
+    errors?: unknown,
     code: string = "VALIDATION_ERROR",
   ) {
-    super(message, 400, code, true, { errors });
+    super(message, 400, code, true, {
+      errors: errors as Record<string, unknown>,
+    });
     this.errors = errors;
   }
 }

@@ -4,16 +4,16 @@
 
 import { createsoPres } from "@sopres/sdk";
 
-if (!process.env.NEXT_PUBLIC_VITECMS_API_URL) {
+if (!process.env.NEXT_PUBLIC_SOPRES_API_URL) {
   throw new Error(
-    "NEXT_PUBLIC_VITECMS_API_URL is not defined. Please check your .env file.",
+    "NEXT_PUBLIC_SOPRES_API_URL is not defined. Please check your .env file.",
   );
 }
 
 export const cms = createsoPres({
-  apiUrl: process.env.NEXT_PUBLIC_VITECMS_API_URL,
-  accessToken: process.env.VITECMS_ACCESS_TOKEN,
-  refreshToken: process.env.VITECMS_REFRESH_TOKEN,
+  apiUrl: process.env.NEXT_PUBLIC_SOPRES_API_URL,
+  accessToken: process.env.SOPRES_ACCESS_TOKEN,
+  refreshToken: process.env.SOPRES_REFRESH_TOKEN,
 });
 
 /**

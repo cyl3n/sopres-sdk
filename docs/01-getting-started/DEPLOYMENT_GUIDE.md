@@ -60,7 +60,7 @@ API_URL=https://api.your-domain.com
 # Database
 DATABASE_URL="file:./prod.db"
 # Or for PostgreSQL:
-# DATABASE_URL="postgresql://user:password@localhost:5432/vitecms"
+# DATABASE_URL="postgresql://user:password@localhost:5432/sopres"
 
 # JWT Secrets (MUST be changed in production!)
 JWT_SECRET="your-super-secret-jwt-key-min-32-characters"
@@ -221,13 +221,13 @@ npx tsx prisma/seed.ts
 npm install -g pm2
 
 # Start API
-pm2 start npm --name "vitecms-api" -- run start:api
+pm2 start npm --name "sopres-api" -- run start:api
 
 # Start Admin (static files need nginx/apache)
 # See nginx configuration below
 
 # View logs
-pm2 logs vitecms-api
+pm2 logs sopres-api
 
 # Monitor
 pm2 monit
@@ -251,7 +251,7 @@ cd api && npx tsx src/server.ts
 
 ### 5. Nginx Configuration
 
-Create `/etc/nginx/sites-available/vitecms`:
+Create `/etc/nginx/sites-available/sopres`:
 
 ```nginx
 server {
@@ -259,7 +259,7 @@ server {
     server_name your-domain.com;
 
     # Admin Panel (Static Files)
-    root /var/www/vitecms/admin/dist;
+    root /var/www/sopres/admin/dist;
     index index.html;
 
     # Client max body size
@@ -298,7 +298,7 @@ server {
 Enable the site:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/vitecms /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/sopres /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -517,7 +517,7 @@ Response:
 
 2. Restart application:
    ```bash
-   pm2 restart vitecms-api
+   pm2 restart sopres-api
    # or
    docker-compose restart api
    ```
@@ -527,7 +527,7 @@ Response:
 1. Check file permissions:
 
    ```bash
-   chmod -R 755 /path/to/vitecms
+   chmod -R 755 /path/to/sopres
    ```
 
 2. Check user running the process
@@ -598,7 +598,7 @@ npx prisma migrate deploy
 npm run build
 
 # Restart (PM2)
-pm2 restart vitecms-api
+pm2 restart sopres-api
 
 # Or restart (Docker)
 docker-compose -f docker-compose.prod.yml up -d --build
@@ -611,10 +611,10 @@ docker-compose -f docker-compose.prod.yml up -d --build
 cp prisma/prod.db prisma/prod.db.backup-$(date +%Y%m%d)
 
 # PostgreSQL backup
-pg_dump vitecms > backup-$(date +%Y%m%d).sql
+pg_dump sopres > backup-$(date +%Y%m%d).sql
 
 # Restore
-psql vitecms < backup-20251126.sql
+psql sopres < backup-20251126.sql
 ```
 
 ---

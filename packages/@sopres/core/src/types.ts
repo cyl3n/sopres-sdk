@@ -107,7 +107,7 @@ export interface PatternField {
     | "color";
   label: string;
   required: boolean;
-  default?: any;
+  default?: unknown;
   options?: string[];
 }
 
@@ -162,7 +162,7 @@ export interface FormSettings {
 export interface FormSubmission {
   id: string;
   formId: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   ipAddress?: string;
   userAgent?: string;
   createdAt: Date;
@@ -170,7 +170,7 @@ export interface FormSubmission {
 }
 
 // API Response Types
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: ApiError;
@@ -180,7 +180,7 @@ export interface ApiResponse<T = any> {
 export interface ApiError {
   code: string;
   message: string;
-  details?: any;
+  details?: unknown;
 }
 
 export interface ApiMeta {
@@ -230,7 +230,7 @@ export interface BuildFile {
 export interface Setting {
   id: string;
   key: string;
-  value: any;
+  value: unknown;
   group?: string;
   createdAt: Date;
   updatedAt: Date;
